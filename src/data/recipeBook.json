@@ -1,0 +1,59 @@
+
+{
+    "crepes":
+        {   
+            "url": "https://www.hervecuisine.com/en/recipe/best-recipe-for-fluffy-french-crepes-by-herve-cuisine/",
+            "img": "https://www.hervecuisine.com/wp-content/uploads/2010/11/recette-crepes-730x520.jpg.webp",
+            "name": "Fluffy French Crepes",
+            "source": "Herve Cuisine",
+            "description" : "",
+            "preparation": "10'",
+            "cooking": "10'",
+            "ingredients": [
+                "250g sifted all-purpose flour (2 cups)",
+                "4 eggs",
+                "450ml lukewarm milk (a bit less than 2 cups)",
+                "2 tbsp amber rum or orange blossom water, or ½ glass beer",
+                "1 tbsp vanilla extract",
+                "2 tbsp sugar",
+                "1 pinch of salt",
+                "50g melted butter (¼ cup)"
+            ],
+            "instructions": [
+                "Melt the butter in the microwave and heat the milk which has to be lightly lukewarm (to avoid lumps in the batter)",
+                "Mix the sifted flour, the sugar and the salt in a mixing bowl. You can replace 50g (⅓ cup) of flour with some cornstarch if you want your crepes to be more fluffy.",
+                "Add the eggs, the melted butter, and then gradually add the milk while whisking to avoid creating lumps in the batter.",
+                "Add the beer or the rum, or the orange blossom water and let the batter stand for 30 minutes before cooking.",
+                "Grease your pan with a little butter and pour the batter into the pan using ladle.",
+                "Cook on each side until golden brown.",
+                "Put the crepes aside on a plate as you go along, and put a piece of foil over them to keep them warm and soft. You should be able to make between 15 and 20 crepes with a 20 cm pan (8 inch pan)."
+            ]
+        },
+    "soupe-butternut":
+    {   
+        "url": "https://www.papillesetpupilles.fr/2019/12/veloute-de-butternut-au-curry.html/",
+        "img": "https://www.platetrecette.fr/wp-content/uploads/2020/10/Veloute-de-butternut.jpg",
+        "name": "Velouté Butternut Coco et Curry",
+        "source": "Papilles et Pupilles",
+        "description" : "",
+        "preparation": "20'",
+        "cooking": "30'",
+        "ingredients": [
+            "1 courge butternut (750 g de cubes de butternut pelés et lavés)",
+            "1 oignon",
+            "20 cl de crème de coco",
+            "20 cl de lait de coco",
+            "35 cl de bouillon de volaille",
+            "1 cuillère à soupe de curry en poudre",
+            "1 pincée de piment d'Espelette",
+            "8 cuillères à café de graines de courge",
+            "1 pincée de sel (si votre bouillon n'est pas salé)"
+        ],
+        "instructions": [
+            "Epluchez l'oignon et ciselez-le.",
+            "Versez l'huile dans une cocotte. Quand elle est chaude, faites-y blondir l'oignon ciselé 2 minutes puis ajoutez les cubes de butternut. Mouillez avec le lait de coco, la crème de coco et le bouillon de volaille. Ajoutez la poudre de curry, mélangez et portez à ébullition. Laissez cuire 20 minutes, à très faible ébullition.",
+            "Mixez au blender.",
+            "Servez et saupoudrez dans chaque assiette la soupe d'une pincée de piment d'Espelette."
+        ]
+    }
+}
