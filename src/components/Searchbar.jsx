@@ -1,12 +1,27 @@
 import React, {useContext} from 'react';
-import { TextField, Box } from '@mui/material';
+import { OutlinedInput, Box } from '@mui/material';
 import { AppContext } from '../App';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { Stack, InputAdornment } from '@mui/material';
+
 
 
 const Searchbar = () => {
-    const {isDark} = useContext(AppContext);
-    let backColor = {}
-    { isDark ? backColor = {backgroundColor: 'rgb(76, 92, 117)'} : backColor = {backgroundColor: 'white'} }
+    const {isDark, setFilter, filter} = useContext(AppContext);
+    let backColor = {backgroundColor: 'white'}
+    isDark && (backColor.backgroundColor = 'rgb(76, 92, 117)')
+
+    const handleSearch = (e) => {
+        setFilter(e.target.value);
+        return
+    }
+    const clearFilter = () => {
+        setFilter('');
+        return
+    }
+    const handleMouseDownPassword = (event) => {
+        event.preventDefault();
+      };
 
     return (
         <Box sx={{
@@ -14,27 +29,33 @@ const Searchbar = () => {
             // top: 0,
             // left: 0,
             width: '99vw',
-            height: {xs: '140px', sm:'160px'},
+            height: {xs: '120px', sm:'140px'},
 
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
+            flexDirection: 'row',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            marginBottom: '15px'
         }}>
-            <TextField label="" variant="outlined" placeholder='Search...' sx={{
-                borderColor: 'white',
-                marginBottom: '15px',
-                
-                
-                "& .MuiOutlinedInput-root":{
-                    ...backColor,
-                width: {sm: '25vw', md: '20vw', lg: '15vw'},
-                transition:  'width 0.3s',
-                },
-                "& .Mui-focused":{
-                width: {sm: '40vw', md: '35vw', lg: '30vw'},
-                }
-            }}/>
+            <Stack direction="row" spacing={1} justifyContent='center' alignItems='center'>
+                <OutlinedInput
+                    value={filter}
+                    label=""
+                    onInput={handleSearch}
+                    variant="outlined"
+                    placeholder='Search...'
+                    id='search-bar'
+                    sx={{
+                            ...backColor,
+                            width: {sm: '25vw', md: '20vw', lg: '15vw'},
+                            transition:  'width 0.3s',
+                            "&:focus-within":{
+                            width: {sm: '40vw', md: '35vw', lg: '30vw'},
+                            }}}
+                    endAdornment={<InputAdornment position="end">{filter.length>0 && (<HighlightOffIcon onClick={clearFilter} onMouseDown={handleMouseDownPassword} sx={{cursor:'pointer'}}/>)}</InputAdornment>}
+                />
+
+            </Stack>
         </Box>
     )
 }

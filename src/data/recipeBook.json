@@ -9,6 +9,8 @@
             "description" : "",
             "preparation": "10'",
             "cooking": "10'",
+            "servings": "15/20 crepes",
+            "level": 1,
             "ingredients": [
                 "250g sifted all-purpose flour (2 cups)",
                 "4 eggs",
@@ -38,6 +40,8 @@
         "description" : "",
         "preparation": "20'",
         "cooking": "30'",
+        "servings": "8 ",
+        "level": 1,
         "ingredients": [
             "1 courge butternut (750 g de cubes de butternut pelés et lavés)",
             "1 oignon",
@@ -51,7 +55,9 @@
         ],
         "instructions": [
             "Epluchez l'oignon et ciselez-le.",
-            "Versez l'huile dans une cocotte. Quand elle est chaude, faites-y blondir l'oignon ciselé 2 minutes puis ajoutez les cubes de butternut. Mouillez avec le lait de coco, la crème de coco et le bouillon de volaille. Ajoutez la poudre de curry, mélangez et portez à ébullition. Laissez cuire 20 minutes, à très faible ébullition.",
+            "Versez l'huile dans une cocotte. Quand elle est chaude, faites-y blondir l'oignon ciselé 2 minutes puis ajoutez les cubes de butternut.",
+            "Mouillez avec le lait de coco, la crème de coco et le bouillon de volaille. Ajoutez la poudre de curry, mélangez et portez à ébullition.",
+            "Laissez cuire 20 minutes, à très faible ébullition.",
             "Mixez au blender.",
             "Servez et saupoudrez dans chaque assiette la soupe d'une pincée de piment d'Espelette."
         ]

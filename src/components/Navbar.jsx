@@ -4,18 +4,12 @@ import {
     AppBar,
     Toolbar,
     Typography,
-    Link,
     Box,
-    Menu,
-    MenuItem,
-    TextField,
-    OutlinedInput,
   } from "@mui/material";
-import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
-import SearchIcon from '@mui/icons-material/Search';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 import useScrollTrigger from "@mui/material/useScrollTrigger";
 
@@ -29,17 +23,15 @@ const Navbar = (props) => {
         threshold: 100,
         });
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const scrollToTop = () => {
+      document.getElementById('search-bar').scrollIntoView({
+        behavior: 'smooth',
+        block: 'end',
+        inline: 'nearest'
+      })
+      return
+    }
 
-    let open = Boolean(anchorEl);
-
-    const handleClick = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
 
   return (
     <AppBar
@@ -48,7 +40,7 @@ const Navbar = (props) => {
       position="fixed"
       elevation={trigger ? 4 : 0}
       sx={{
-        backgroundColor: trigger ? "rgb(27, 37, 59)" : "rgb(27, 37, 59)",
+        backgroundColor: "rgb(27, 37, 59)",
         color: 'white',
         transition: "background-color 0.5s",
         backgroundImage: 'none'
@@ -75,6 +67,7 @@ const Navbar = (props) => {
           <Typography
             variants="button"
             component="div"
+            onClick={scrollToTop}
             sx={{
               fontFamily: "'Patrick Hand', cursive",
               margin: 0,
@@ -82,6 +75,7 @@ const Navbar = (props) => {
               textAlign: "left",
               fontSize: "1.7em",
               fontWeight: 900,
+              cursor: 'pointer'
             }}
           >
           
@@ -89,57 +83,12 @@ const Navbar = (props) => {
           </Typography>
         </Box>
 
+        <IconButton onClick={props.toggleGenerator} color="inherit">
+          <AddCircleOutlineIcon />
+        </IconButton>
         <IconButton onClick={props.setTheme} color="inherit">
           {props.theme ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
-
-
-        <IconButton
-          id="navigation-button"
-          aria-label="navigation"
-          aria-controls={open ? "navigation-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? "true" : undefined}
-          onClick={handleClick}
-          sx={{ display: { xs: "block", sm: "none" }, marginRight: "0" }}
-        >
-          <SearchIcon />
-        </IconButton>
-        
-        <Menu
-          id="navigation-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "navigation-button",
-          }}
-          sx={{'& .MuiPaper-root': {
-              backgroundColor: '#000',
-              backgroundImage: 'none'
-          }}}
-        >
-          <Link href="#landing" underline="none" color="inherit">
-            <MenuItem id="menu-home" onClick={handleClose}>
-              Home
-            </MenuItem>
-          </Link>
-          <Link href="#about" underline="none" color="inherit">
-            <MenuItem id="menu-about" onClick={handleClose}>
-              About Me
-            </MenuItem>
-          </Link>
-          <Link href="#portfolio" underline="none" color="inherit">
-            <MenuItem id="menu-portfolio" onClick={handleClose}>
-              Portfolio
-            </MenuItem>
-          </Link>
-          <Link href="#contact" underline="none" color="inherit">
-            <MenuItem id="menu-contact" onClick={handleClose}>
-              Contact
-            </MenuItem>
-          </Link>
-        </Menu>
         
       </Toolbar>
     </AppBar>

@@ -9,11 +9,12 @@ import { Stack, CardActionArea } from '@mui/material';
 import { AppContext } from '../App';
 
 const CatalogCard = (props) => {
-  const {setDisplayRecipe, setRecipe} = useContext(AppContext);
+  const {setDisplayRecipe, setRecipe, setDisplayGenerator} = useContext(AppContext);
 
   const handleCard = () => {
     setDisplayRecipe(true)
     setRecipe(props.name)
+    setDisplayGenerator(false)
     return
   }
 
@@ -24,7 +25,7 @@ const CatalogCard = (props) => {
             component="img"
             height="140"
             image= {props.recipe.img}
-            alt="green iguana"
+            alt={'cooked' + props.name}
           />
           <CardContent sx={{height: {xs: 'auto', sm:'140px'}}}>
             <Typography gutterBottom variant="h5" component="div" sx={{

@@ -12,6 +12,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import Fade from '@mui/material/Fade';
 import { Box } from '@mui/system';
+import Generator from './components/Generator';
 
 
 export const AppContext = createContext();
@@ -19,7 +20,9 @@ export const AppContext = createContext();
 const App = () => {
   const [isDark, setIsDark] = useState(false);
   const [displayRecipe, setDisplayRecipe] = useState(false);
+  const [displayGenerator, setDisplayGenerator] = useState(false);
   const [recipe, setRecipe] = useState('');
+  const [filter, setFilter] = useState('');
 
   const darkTheme = createTheme({
     palette: {
@@ -48,19 +51,28 @@ const App = () => {
     return
   };
 
+  const toggleGenerator = () => {
+    setDisplayGenerator(!displayGenerator)
+    setDisplayRecipe(false)
+    return
+  }
+
+
   return (
     <div className="App">
-      <AppContext.Provider value={{isDark, setIsDark, setDisplayRecipe, displayRecipe, setRecipe}}>
+      <AppContext.Provider value={{isDark, setIsDark, setDisplayRecipe, displayRecipe, setRecipe, filter, setFilter, setDisplayGenerator}}>
         <ThemeProvider theme={darkTheme}>
-          <Navbar theme={isDark} setTheme={switchTheme}/>
+          <Navbar theme={isDark} setTheme={switchTheme} toggleGenerator={toggleGenerator}/>
         </ThemeProvider>
 
         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
           <CssBaseline />
           <Searchbar/>
-          <Catalog />
+          
+          {!displayRecipe && (<Catalog />)}
 
-          <Fade in={displayRecipe}>{<Box><Recipe name={recipe}/></Box>}</Fade>
+          <Fade in={displayRecipe}>{<Box>{displayRecipe && (<Recipe name={recipe}/>)}</Box>}</Fade>
+          <Fade in={displayGenerator}>{<Box>{displayGenerator && (<Generator name={recipe}/>)}</Box>}</Fade>
 
           <Footer />
         </ThemeProvider>
