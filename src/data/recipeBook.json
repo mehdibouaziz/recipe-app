@@ -1,6 +1,6 @@
 
 {
-    "crepes":
+    "0001":
         {   
             "url": "https://www.hervecuisine.com/en/recipe/best-recipe-for-fluffy-french-crepes-by-herve-cuisine/",
             "img": "https://www.hervecuisine.com/wp-content/uploads/2010/11/recette-crepes-730x520.jpg.webp",
@@ -31,7 +31,169 @@
                 "Put the crepes aside on a plate as you go along, and put a piece of foil over them to keep them warm and soft. You should be able to make between 15 and 20 crepes with a 20 cm pan (8 inch pan)."
             ]
         },
-    "soupe-butternut":
+    "0003":
+        {
+        "url": "https://www.prima.co.uk/all-recipes/healthy-recipes/a26073022/slow-cooker-chicken-curry/",
+        "img": "https://www.thespruceeats.com/thmb/m7lyKJKk2x7ezOnDM_oHncbP1xg=/1776x1332/smart/filters:no_upscale()/thai-green-curry-recipe-p3-3217442-hero-1-a3fcdfbc551849718c7750fa63ec8c6a.jpg",
+        "name": "Slow cooker Thai green curry with chicken",
+        "source": "Prima",
+        "description": "",
+        "preparation": "10'",
+        "cooking": "8h",
+        "servings": "4",
+        "level": 2,
+        "ingredients": [
+            "1 tbsp. olive oil.",
+            "4 skinless boneless chicken thighs 550g (11⁄4lb) total weight, cut into bite-sized pieces.",
+            "4 tsp. Thai green curry paste for a spicier sauce).",
+            "2 tbsp. light soy sauce.",
+            "400 ml can coconut milk.",
+            "1–2 tbsp fish sauce (nam pla).",
+            "200 ml hot vegetable stock.",
+            "175 g open-cap mushrooms, chopped.",
+            "6 spring onions, trimmed and with the green part chopped into 5mm (1⁄4in) slices.",
+            "Salt and freshly ground black pepper.",
+            "Chopped coriander, to serve"
+            ],
+        "instructions": [
+        "Preheat the slow cooker, if required.",
+        "Heat the oil in a large flameproof casserole over a medium heat, add the chicken (in batches, if necessary), and cook for about 10 minutes until lightly browned.",
+        "Remove and set aside.",
+        "Stir in the curry paste and cook for a minute.",
+        "Pour in the soy sauce, coconut milk, fish sauce, and stock, and bring to the boil, stirring.",
+        "Transfer to the slow cooker, adding the chicken, mushrooms, and most of the spring onions, and season with salt and pepper.",
+        "Cover with the lid and cook on auto/low for 6–8 hours or on high for 3–4 hours.",
+        "Taste and adjust seasoning, if needed, or add a little more fish sauce.",
+        "Garnish with the coriander and remaining sliced spring onions.",
+        "Serve hot with boiled or steamed long-grain rice or plain noodles."
+        ]
+        },
+        "0004":
+            {
+            "url": "https://www.themediterraneandish.com/muhammara-recipe-roasted-red-pepper-dip/",
+            "img": "https://www.themediterraneandish.com/wp-content/uploads/2020/05/muhammara-recipe-6.jpg",
+            "name": "Muhammara roasted red pepper dip",
+            "source": "The Mediterranean Dish",
+            "description": "",
+            "preparation": "10'",
+            "cooking": "30'",
+            "servings": "6",
+            "level": 3,
+            "ingredients": [
+            "2 red bell peppers.",
+            "4 tablespoon Extra Virgin Olive Oil divided.",
+            "¼ lb shelled toasted walnuts.",
+            "1 garlic clove roughly chopped.",
+            "2 ½ tablespoon tomato paste.",
+            "¾ cup bread crumbs.",
+            "2 tablespoon pomegranate molasses I used this one.",
+            "1 teaspoon Aleppo pepper.",
+            "½ teaspoon sugar.",
+            "1 teaspoon sumac.",
+            "½ teaspoon salt.",
+            "½ teaspoon cayenne pepper optional"
+            ],
+            "instructions": [
+            "Preheat the oven to 425 degrees F.",
+            "Brush the bell peppers with 1 tablespoon of olive oil, and place in a lightly oiled oven-safe pan or cast-iron skillet.",
+            "Roast the peppers in the 425 degrees F heated oven for 30 minutes or so, turning them over once or twice.",
+            "Remove from the oven and place the peppers in a bowl.",
+            "Cover with plastic wrap for a few minutes.",
+            "This traps the steam from the roasted peppers, making them easy to peel.",
+            "When cool enough to handle, simply peel the peppers, remove the seeds and slice the peppers into small strips.",
+            "Now in the bowl of a large food processor, combine the roasted red pepper strips with 3 tablespoon extra virgin olive oil, walnuts, tomato paste, bread crumbs, pomegranate molasses, Aleppo pepper, sugar, sumac, salt and cayenne.",
+            "Blend into a smooth paste.",
+            "Transfer to a serving bowl.",
+            "You may cover the muhammara and refrigerate, but be sure to bring the dip to room temperature before serving.",
+            "When ready to serve, top the dip with a drizzle of extra virgin olive oil, and garnish with a little more walnuts and fresh parsley, if you like.",
+            "Serve with pita bread or pita chips"
+            ]
+            },
+        "0005":
+            {
+            "url": "https://www.papillesetpupilles.fr/2012/10/tarte-aux-poireaux-et-au-parmesan.html/",
+            "img": "https://gm-163ba.kxcdn.com/wp-content/uploads/2020/09/tarte-aux-poireaux.jpg?format=png",
+            "name": "Tarte aux poireaux et au Parmesan",
+            "source": "Papilles et Pupilles",
+            "description": "",
+            "preparation": "30'",
+            "cooking": "30'",
+            "servings": "4",
+            "level": 2,
+            "ingredients": [
+            "3 blancs de poireaux.",
+            "20 g de beurre.",
+            "1 cube de bouillon de volaille.",
+            "250 ml de vin blanc sec.",
+            "300 g de fromage à la crème (type Philadelphia).",
+            "2 œufs.",
+            "1 pincée de poivre.",
+            "75 g de lardons fumés (facultatif).",
+            "2 poignées de Parmesan fraichement râpé.",
+            "1 pâte feuilletée ou brisée"
+            ],
+            "instructions": [
+            "Ôtez les premières feuilles des poireaux et coupez-le pied.",
+            "Fendez-les en deux et nettoyez-les.",
+            "Coupez-les en lamelles.",
+            "Faites fondre 20 g de beurre dans une sauteuse.",
+            "Ajoutez les poireaux et faites les suer pendant une dizaine de minutes à couvert.",
+            "Quand il n’y a plus de liquide, mouillez avec le vin blanc, ajoutez le cube de bouillon de volaille et laisser cuire une vingtaine de minutes, toujours à couvert.",
+            "Au bout de ce laps de temps, le liquide doit s’être évaporé et les poireaux doivent être cuits.",
+            "Vous pouvez préparez les poireaux à l’avance, la veille par exemple.",
+            "Préchauffez le four à 210°C.",
+            "Faites grillez les lardons fumés à la poêle, ôtez tout le gras de cuisson et réservez.",
+            "Dans un saladier, versez le fromage à la crème, écrasez-le à la fourchette.",
+            "Ajoutez les œufs un par un en mélangeant à chaque fois.",
+            "Poivrez et ajoutez les lardons et les poireaux.",
+            "Mélangez encore.",
+            "Déposez la tarte dans le moule.",
+            "Versez la préparation précédemment réalisée à l’intérieur.",
+            "Saupoudrez avec le Parmesan et enfournez pour 30 minutes de cuisson, chaleur tournante.",
+            "Les 5 dernières minutes, si la tarte n’est pas dorée, utilisez l’option grill"
+            ]
+            },
+        "0006":
+            {
+            "url": "https://www.papillesetpupilles.fr/2020/05/le-houmous-de-jerusalem.html/",
+            "img": "https://bi.im-g.pl/im/ed/29/19/z26383085Q,Hummus.jpg",
+            "name": "Le houmous de Jerusalem",
+            "source": "Papilles et Pupilles",
+            "description": "",
+            "preparation": "12-24h",
+            "cooking": "30'",
+            "servings": "6",
+            "level": 1,
+            "ingredients": [
+            "1 tasse et demi de pois chiches secs. Il est préférable de prendre des pois chiches secs de petite taille. Réservez ceux de plus grande taille pour la préparation des falafels par exemple.",
+            "120 ml de liquide de cuisson des pois chiche (1/2 tasse).",
+            "1 cuillère à café de bicarbonate de soude.",
+            "1 tasse de tahiné.  Ariel recommande à l’instar de Yotam Ottolenghi, la marque Al Arz..",
+            "120 ml de jus de citron.",
+            "1,5 cuillère à café de fleur de sel.",
+            "2 cuillères à soupe d’huile d’olive."
+            ],
+            "instructions": [
+            "Rincez les pois chiches, mettez-les dans un grand récipient.",
+            "Couvrez d’eau (qu’il y en ait au moins 5 cm au dessus des pois chiches) et laissez tremper pendant 12 à 24 heures.",
+            "Changez l’eau toutes les 6 heures.",
+            "Au bout de ce laps de temps, rincez-les et mettez les dans une casserole (toujours 5 cm d’eau au dessus des pois chiche).",
+            "Ajoutez le bicarbonate et portez à ébullition.",
+            "Ôtez l’écume qui se forme à la surface.",
+            "Laissez cuire environ 1 heure à petite ébullition et sortez l’équivalent d’une cuillère à soupe de pois chiches qui seront utilisés pour le service.",
+            "Continuez la cuisson du reste pendant 20 à 30 minutes, le temps que les pois chiches soient très mous et se désagrègent vraiment dans le liquide de cuisson.",
+            "Laissez refroidir et transférez dans une boite hermétique avec le liquide de cuisson (c’est l’un des secrets. Vous verrez, le liquide devient gélatineux).",
+            "Laissez refroidir au réfrigérateur pendant 5 heures.",
+            "A ce moment de la recette, vous pouvez même conserver les pois chiches dans la boite pendant 2 ou 3 jours, toujours au réfrigérateur bien sûr.",
+            "Quand les pois chiches ont refroidi, mixez-les avec 120 ml de liquide de cuisson pendant 3 minutes jusqu’à obtenir une purée lisse et crémeuse.",
+            "Ajoutez la moitié du tahiné, la moitié du jus de citron et la pincée de sel et continuez de mixer 2 minutes.",
+            "Ajoutez l’autre moitié du tahiné et goûtez pour ajouter plus ou moins du citron restant en fonction de vos goûts.",
+            "Laissez reposer au réfrigérateur quelques heures, le houmous va se stabiliser.",
+            "Servez le houmous dans un plat un peu profond avec les pois chiches réservés lors de la cuisson (faites-les tiédir, c’est encore meilleur), et arrosez d’huile d’olive.",
+            "Accompagnez de l’indispensable pain pita."
+            ]
+            },
+    "0002":
     {   
         "url": "https://www.papillesetpupilles.fr/2019/12/veloute-de-butternut-au-curry.html/",
         "img": "https://www.platetrecette.fr/wp-content/uploads/2020/10/Veloute-de-butternut.jpg",

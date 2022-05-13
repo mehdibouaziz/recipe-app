@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Stack, CardActionArea } from '@mui/material';
+import DiningIcon from '@mui/icons-material/Dining';
+
 
 import { AppContext } from '../App';
 
@@ -17,6 +19,9 @@ const CatalogCard = (props) => {
     setDisplayGenerator(false)
     return
   }
+
+  const cookLevel = Array.from(new Array(props.recipe.level), () => <DiningIcon fontSize='small' />)
+
 
   return (
     <Card sx={{ maxWidth: {xs: '46vw', md: '30vw', lg: '24vw'},}}>
@@ -49,6 +54,8 @@ const CatalogCard = (props) => {
                 <Typography variant="body2" sx={{fontSize: 'inherit'}}>{props.recipe.preparation}</Typography>
                 <i className="fa-solid fa-fire-burner"></i>
                 <Typography variant="body2" sx={{fontSize: 'inherit'}}>{props.recipe.cooking}</Typography>
+                <Typography variant="body2" sx={{fontSize: 'inherit'}}> - Skill:</Typography>
+                <Stack direction="row" spacing={0}>{cookLevel}</Stack>
             </Stack>
 
           </CardContent>

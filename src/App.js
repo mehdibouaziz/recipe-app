@@ -67,8 +67,8 @@ const App = () => {
 
         <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
           <CssBaseline />
-          <Searchbar/>
-          
+
+          {!displayRecipe && (<Searchbar />)}
           {!displayRecipe && (<Catalog />)}
 
           <Fade in={displayRecipe}>{<Box>{displayRecipe && (<Recipe name={recipe}/>)}</Box>}</Fade>

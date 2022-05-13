@@ -55,17 +55,15 @@ const Recipe = (props) => {
     
       <Box id='recipeDisplay'
         sx={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
+        // position: 'fixed',
+        // top: 0,
+        // left: 0,
         width: '100%',
-        height: '100vh',
         display: 'flex',
         flexDirection: 'flex-row',
         alignItems: 'flex-start',
         justifyContent: 'center',
         backgroundColor: 'background.default',
-        overflow: 'auto'
       }}>
         <IconButton onClick={handleClose} sx={{
           position: 'fixed',
