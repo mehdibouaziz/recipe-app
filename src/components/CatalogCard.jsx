@@ -20,7 +20,7 @@ const CatalogCard = (props) => {
     return
   }
 
-  const cookLevel = Array.from(new Array(props.recipe.level), () => <DiningIcon fontSize='small' />)
+  const cookLevel = Array.from(new Array(props.recipe.level), () => <DiningIcon sx={{fontSize:'1.3em'}}/>)
 
 
   return (

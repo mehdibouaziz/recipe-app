@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 
 import './App.css';
 
@@ -56,6 +56,12 @@ const App = () => {
     setDisplayRecipe(false)
     return
   }
+
+  useEffect(() => {
+    const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches
+    setIsDark(isSystemDark)
+    return
+  }, []);
 
 
   return (
