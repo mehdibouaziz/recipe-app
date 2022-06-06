@@ -31,10 +31,18 @@ const Recipe = (props) => {
   }
   const cookLevel = Array.from(new Array(recipeCatalog.level), () => <DiningIcon fontSize='small' />)
   const ingredients = recipeCatalog.ingredients.map(item => {
-    return <ListItem><ListItemText>{item}</ListItemText></ListItem>
+    if(item.charAt(0)==="+"){
+      return <ListItem><ListItemText sx={{'& .MuiTypography-root': {fontWeight:900}}}>{item.slice(2)}</ListItemText></ListItem>
+    } else {
+      return <ListItem><ListItemText>{item}</ListItemText></ListItem>
+    }
   })
   const steps = recipeCatalog.instructions.map(item => {
-    return <ListItem><ListItemText>{item}</ListItemText></ListItem>
+    if(item.charAt(0)==="+"){
+      return <ListItem><ListItemText sx={{'& .MuiTypography-root': {fontWeight:900}}}>{item.slice(2)}</ListItemText></ListItem>
+    } else {
+      return <ListItem><ListItemText>{item}</ListItemText></ListItem>
+    }
   })
   const denseListStyle = {'& .MuiListItem-dense': {
       paddingTop: '2px',

@@ -2,3 +2,6 @@ body {
     margin: 0;
 }
 
+.listTitle{
+    font-weight: 900 !important;
+}
