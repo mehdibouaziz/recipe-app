@@ -51,7 +51,8 @@ const RecipeAddNew = () => {
     e.preventDefault();
     setLoading(true)
 
-    // form validation here:
+    try {
+    //  form validation here:
 
     // todo? store image in firebase
 
@@ -60,6 +61,7 @@ const RecipeAddNew = () => {
       ...formData,
       ingredients: formData.ingredients.split("\n"),
       instructions: formData.instructions.split("\n"),
+      level: +level,
       timestamp: serverTimestamp()
     }
     // console.log(formDataCopy)
@@ -69,6 +71,12 @@ const RecipeAddNew = () => {
     setLoading(false)
     toast.success("New recipe added")
     navigate('/')
+
+    } catch (error) {
+      console.log(error)
+      toast.error('Failed to upload recipe')
+      setLoading(false)
+    }
 
   }
 
