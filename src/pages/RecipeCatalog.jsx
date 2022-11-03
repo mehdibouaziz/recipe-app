@@ -52,11 +52,13 @@ const RecipeCatalog = () => {
     fetchRecipes()
 },[])
 
-if(loading){ return <Spinner />}
+if(loading){ return <Spinner overlay />}
 
   return (
     <>
-      <RecipeCatalogItemGrid recipe={recipes[0].data} id={recipes[0].id} key={recipes[0].id} />
+      { recipes.map((recipe) => (
+        <RecipeCatalogItemGrid recipe={recipe.data} id={recipe.id} key={recipe.id} />
+      ))}
     </>
     )
 }

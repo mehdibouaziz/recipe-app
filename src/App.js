@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path='/' element={<RecipeCatalog />} />
           <Route path='/recipe/:recipeId' element={<RecipeViewer />} />
-          <Route path='/addnew' element={<RecipeAddNew />} />
+          <Route path='/add-new' element={<RecipeAddNew />} />
         </Routes>
       </Router>
       <ToastContainer />

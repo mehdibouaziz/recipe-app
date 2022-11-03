@@ -5,6 +5,7 @@ import logo from "../assets/images/chef.png";
 
 const Navbar = () => {
   return (
+    <>
     <div className="navbar bg-base-100">
       <Link to="/" className="btn btn-ghost normal-case text-xl">
         <img
@@ -17,7 +18,11 @@ const Navbar = () => {
         ></img>
         A+M Recipes
       </Link>
+      <Link to="/add-new" className="btn btn-ghost normal-case text-xl">
+        Add New
+      </Link>
     </div>
+    </>
   );
 };
 
