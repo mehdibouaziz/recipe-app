@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit'
-import mainReducer from '../slices/mainSlice'
 
 export const mainSlice = createSlice({
     name: 'main',

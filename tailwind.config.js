@@ -4,7 +4,15 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'spinner': '#1EAAF0',
+      },
+      animation: {
+        'spin-inner': 'spin 3s linear infinite',
+        'spin-outer': 'spin 4s linear infinite',
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
