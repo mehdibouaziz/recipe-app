@@ -21,7 +21,7 @@ const RecipeCatalog = () => {
         // create query
         const q = query(
             recipesRef,
-            orderBy('timestamp', 'desc'),
+            orderBy('timestamp', 'asc'),
             limit(10)
         )
 
@@ -56,9 +56,13 @@ if(loading){ return <Spinner overlay />}
 
   return (
     <>
-      { recipes.map((recipe) => (
-        <RecipeCatalogItemGrid recipe={recipe.data} id={recipe.id} key={recipe.id} />
-      ))}
+    <div className="flex w-full px-2 sm:px-6 justify-center mt-6">
+      <div className="grid gap-4 grid-cols-2 md:grid-cols-4 xl:grid-cols-6">
+        { recipes.map((recipe) => (
+          <RecipeCatalogItemGrid recipe={recipe.data} id={recipe.id} key={recipe.id} />
+        ))}
+        </div>
+      </div>
     </>
     )
 }

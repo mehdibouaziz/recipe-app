@@ -4,6 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    fontFamily: {
+      hand: ['Patrick Hand', 'ui-sans-serif', 'sans-serif'],
+      content: ['Roboto', 'ui-sans-serif', 'sans-serif'],
+      title: ['Playfair Display', 'serif'],
+      condensed: ['Roboto Condensed', 'sans-serif']
+    },
     extend: {
       colors: {
         'spinner': '#1EAAF0',

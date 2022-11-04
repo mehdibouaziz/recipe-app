@@ -1,7 +1,7 @@
 // !!! nts Requires tailwind configs to work
 const Spinner = ({overlay = false}) => {
     return (
-        <div className={overlay ? "fixed top-0 left-0 bg-slate-500/50 w-full h-full" : ''}>
+        <div className={overlay ? "fixed top-0 left-0 bg-black/50 w-full h-full" : ''}>
           <div className="absolute w-7 h-7 bg-spinner rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
           <div className="absolute top-1/2 left-1/2 animate-spin-inner">
               <div className="absolute rounded-full border-[3px] w-16 h-16 border-transparent border-l-spinner -translate-x-1/2 -translate-y-1/2 rotate-[65deg]"></div>

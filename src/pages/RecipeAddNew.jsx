@@ -81,12 +81,12 @@ const RecipeAddNew = () => {
   }
 
   return (
-    <div>
+    <div className="flex w-full justify-center">
       {loading &&
         <Spinner overlay />
       }
       <form onSubmit={onSubmit}>
-      <div className="grid gap-2 grid-cols-2 justify-items-center w-1/2">
+      <div className="grid gap-2 grid-cols-2 justify-items-center w-full">
 
         <div className="form-control w-full max-w-xs">
           <label className="label">
