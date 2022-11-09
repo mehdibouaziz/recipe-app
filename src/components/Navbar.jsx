@@ -27,8 +27,7 @@ const Navbar = () => {
           A&M<span className="text-primary uppercase">Recipes</span>
         </Link>
       </div>
-      <div className="flex-none gap-4">
-        
+      <div className="flex-none gap-0 sm:gap-4 hidden sm:block">
         <Link to="/add-new" className="btn btn-ghost text-xl font-condensed normal-case">
           Add New
         </Link>

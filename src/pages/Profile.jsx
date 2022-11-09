@@ -22,7 +22,7 @@ const Profile = () => {
     <div className="flex w-full px-6 sm:px-6 pt-4 justify-center">
         <div className="w-full sm:w-3/4 lg:w-1/2">
             <h1 className="font-title text-4xl mt-10 mb-2">Welcome {auth.currentUser.displayName}!</h1>
-            <button className="btn btn-xs btn-accent mb-10" onClick={onLoggout}>Loggout</button>
+            <button className="btn btn-xs btn-error mb-10" onClick={onLoggout}>Loggout</button>
 
             <label className="label">
               <span className="label-text">Pick a theme</span>
