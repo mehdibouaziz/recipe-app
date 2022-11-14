@@ -7,8 +7,8 @@ import { toast } from "react-toastify"
 import { FaEye, FaEyeSlash, FaAt, FaKey, FaIdBadge } from "react-icons/fa"
 
 
-const SignIn = () => {
-    const [showPassword, setShowPassword] = useState(true)
+const SignUp = () => {
+    const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -46,7 +46,7 @@ const SignIn = () => {
 
             await setDoc(doc(db, 'users', user.uid), formDataCopy)
             toast.success('Succesfully registered user!')
-            navigate('/profile')
+            navigate('/')
             
         } catch (error) {
             toast.error('Wrong went wrong with registration')
@@ -67,7 +67,7 @@ const SignIn = () => {
                         <FaAt className="absolute top-1/2 left-6 -translate-y-1/2" />
                         <input type="email" placeholder="Email" className="input input-bordered w-full pl-14" id="email" onChange={handleChange} value={email} />
                     </div>
-                    <div className="form-control w-full relative">
+                    <div className="form-control w-full relative tooltip tooltip-bottom" data-tip="min. 6 characters">
                         <FaKey className="absolute top-1/2 left-6 -translate-y-1/2" />
                         <input type={showPassword ? 'text' : 'password'} placeholder="Password" className="input input-bordered w-full pl-14" id="password" onChange={handleChange} value={password} />
                         <div className="absolute top-1/2 right-6 -translate-y-1/2 cursor-pointer" onClick={() => setShowPassword(!showPassword)}>{showPassword ? <FaEyeSlash /> : <FaEye />}</div>
@@ -81,7 +81,7 @@ const SignIn = () => {
 
                 <div className="mt-10 pl-12 flex flex-row gap-4 items-center">
                     <h3>Already registered?</h3>
-                    <Link to='/sign-in'><button className="btn btn-xs btn-primary">Sign In</button></Link>
+                    <Link to='/sign-in'><button className="btn btn-xs btn-secondary">Sign In</button></Link>
                 </div>
 
             </div>
@@ -89,4 +89,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn
+export default SignUp

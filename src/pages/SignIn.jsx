@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash, FaUser, FaKey } from "react-icons/fa"
 
 
 const SignIn = () => {
-    const [showPassword, setShowPassword] = useState(true)
+    const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
         email: '',
         password: ''
@@ -61,7 +61,7 @@ const SignIn = () => {
 
                 <div className="mt-10 pl-12 flex flex-row gap-4 items-center">
                     <h3>New User?</h3>
-                    <Link to='/sign-up'><button className="btn btn-xs btn-primary">Sign Up</button></Link>
+                    <Link to='/sign-up'><button className="btn btn-xs btn-secondary">Sign Up</button></Link>
                 </div>
 
             </div>
