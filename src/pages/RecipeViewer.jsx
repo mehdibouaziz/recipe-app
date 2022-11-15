@@ -70,9 +70,11 @@ const RecipeViewer = () => {
       );
     }
     return (
-      <li key={`ingredient-${index}`} className="flex flex-row mb-4 gap-4">
-        <input type="checkbox" className="checkbox checkbox-primary" />
-        <p>{item}</p>
+      <li key={`ingredient-${index}`} className="form-control">
+        <label className="label cursor-pointer mb-0 gap-4 justify-start">
+          <input type="checkbox" className="checkbox checkbox-primary" />
+          <p className="checkbox-label-strikethrough">{item}</p>
+        </label>
       </li>
     );
   });

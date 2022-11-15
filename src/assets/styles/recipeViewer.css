@@ -1,0 +1,4 @@
+input[type=checkbox]:checked + p.checkbox-label-strikethrough{
+  text-decoration: line-through;
+  color: theme(colors.gray.400);
+}
