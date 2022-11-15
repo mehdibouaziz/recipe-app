@@ -63,7 +63,7 @@ const RecipeViewer = () => {
       return (
         <h3
           key={`ingredient-${index}`}
-          className="flex flex-row mb-4 gap-4 font-semibold"
+          className="flex flex-row mb-2 gap-4 font-semibold mt-4 first:mt-0"
         >
           {item.replace(/^#*/, "")}
         </h3>
@@ -80,7 +80,7 @@ const RecipeViewer = () => {
   });
 
   return (
-    <div className="w-100 flex flex-row justify-center">
+    <div className="w-100 flex flex-row justify-center mb-12">
       <div className="flex flex-col w-[90%] sm:w-[70%] lg:w-[70%]">
         <h1 className="text-xl lg:text-5xl font-bold lg:font-medium font-title mb-4">
           {recipe.name}

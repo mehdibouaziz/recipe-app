@@ -16,3 +16,12 @@ Recipe App w/ React/Redux/Tailwind/DaisyUI/Firebase
 [] Add highlighted recipes sliders
 [] Add footer, site infos, links
 [] Add favorites
+
+
+## Breakpoints
+
+Catalog:
+- base: 2 cols
+- md: 3 cols
+- lg: 4 cols
+- xl: 5 cols

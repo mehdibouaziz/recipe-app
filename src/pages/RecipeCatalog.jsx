@@ -57,7 +57,7 @@ if(loading){ return <Spinner overlay />}
   return (
     <>
     <div className="flex w-full px-2 sm:px-6 justify-center mt-2 md:mt-6 mb-20 sm:mb-6">
-      <div className="grid gap-4 grid-cols-2 md:grid-cols-4 xl:grid-cols-6">
+      <div className="grid gap-x-4 gap-y-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
         { recipes.map((recipe) => (
           <RecipeCatalogItemGrid recipe={recipe.data} id={recipe.id} key={recipe.id} />
         ))}
