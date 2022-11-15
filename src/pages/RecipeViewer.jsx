@@ -3,6 +3,8 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { FiPrinter } from "react-icons/fi";
+import { FaLink } from "react-icons/fa";
+
 
 import Spinner from "../components/Spinner";
 
@@ -81,7 +83,7 @@ const RecipeViewer = () => {
 
   return (
     <div className="w-100 flex flex-row justify-center mb-12">
-      <div className="flex flex-col w-[90%] sm:w-[70%] lg:w-[70%]">
+      <div className="flex flex-col w-[90%] sm:w-[70%] max-w-[1000px]">
         <h1 className="text-xl lg:text-5xl font-bold lg:font-medium font-title mb-4">
           {recipe.name}
         </h1>
@@ -90,15 +92,16 @@ const RecipeViewer = () => {
           <a href={recipe.sourceUrl} target="_blank" rel="noreferrer">
             <p className="font-content underline">{recipe.sourceName}</p>
           </a>
+          <FaLink className="text-xs self-center"/>
           <p className="font-content">
-            - {new Date(recipe.timestamp.seconds * 1000).toDateString()}
+             - Added {new Date(recipe.timestamp.seconds * 1000).toDateString()}
           </p>
         </div>
         <p className="font-content text-sm lg:text-base border-t pt-4 mb-4 empty:border-none empty:mb-2 empty:p-0">
           {recipe.description}
         </p>
         <div
-          className="w-full h-[40vw] bg-cover bg-center rounded-xl"
+          className="w-full aspect-[5/3] bg-cover bg-center rounded-xl"
           style={{ backgroundImage: `url(${recipe.img})` }}
         ></div>
 
@@ -115,9 +118,9 @@ const RecipeViewer = () => {
             <p className="text-xs text-gray-500">SERVINGS</p>
             <p className="uppercase">{recipe.servings}</p>
           </div>
-          <div>
+          <button className="btn btn-ghost">
             <FiPrinter className="text-xl" />
-          </div>
+          </button>
         </div>
 
         {/* todo: add a way to detect subsections and display them properly */}

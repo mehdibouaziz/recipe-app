@@ -3,6 +3,8 @@ Recipe App w/ React/Redux/Tailwind/DaisyUI/Firebase
 
 ## To Do :
 [] Improve add new form
+[] Add userRef to add new form
+[] Create live preview next to add new
 [] Add own recipes to profile
 [] Create catalog list view
 [] Create print friendly layout
