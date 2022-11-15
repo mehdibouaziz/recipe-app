@@ -1,46 +1,102 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, updateProfile } from "firebase/auth";
-import { themeChange } from 'theme-change'
+import { themeChange } from "theme-change";
 
+import { TbColorSwatch } from "react-icons/tb";
 
 const Profile = () => {
-    const auth = getAuth();
-    const [loading, setLoading] = useState(true);
-    const navigate = useNavigate();
+  const auth = getAuth();
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
+  const themes = [
+    "light",
+    "dark",
+    "cupcake",
+    "bumblebee",
+    "emerald",
+    "corporate",
+    "synthwave",
+    "retro",
+    "cyberpunk",
+    "valentine",
+    "halloween",
+    "garden",
+    "forest",
+    "aqua",
+    "lofi",
+    "pastel",
+    "fantasy",
+    "wireframe",
+    "black",
+    "luxury",
+    "dracula",
+    "cmyk",
+    "autumn",
+    "business",
+    "acid",
+    "lemonade",
+    "night",
+    "coffee",
+    "winter",
+  ];
 
-    useEffect(() => {
-      themeChange(false)
-    }, [])
+  useEffect(() => {
+    themeChange(false);
+  }, []);
 
-    const onLoggout = () => {
-      auth.signOut();
-      navigate("/");
-    };
+  const onLoggout = () => {
+    auth.signOut();
+    navigate("/");
+  };
 
   return (
-    <div className="flex w-full px-6 sm:px-6 pt-4 justify-center">
-        <div className="w-full sm:w-3/4 lg:w-1/2">
-            <h1 className="font-title text-4xl mt-10 mb-2">Welcome {auth.currentUser.displayName}!</h1>
-            <button className="btn btn-xs btn-error mb-10" onClick={onLoggout}>Loggout</button>
-
-            <label className="label">
-              <span className="label-text">Pick a theme</span>
-            </label>
-            <select data-choose-theme className="select w-full max-w-xs">
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-              <option value="cupcake">Cupcake</option>
-              <option value="emerald">Emerald</option>
-              <option value="forest">Forest</option>
-              <option value="garden">Garden</option>
-              <option value="retro">Retro</option>
-            </select>
-
+    <div className="w-full flex flex-row justify-center">
+      <div className="flex flex-col w-full sm:w-3/4 px-6 sm:px-6 pt-4 items-start">
+        <div className="w-full">
+          <h1 className="font-title text-4xl mt-10 mb-2">
+            Welcome {auth.currentUser.displayName}!
+          </h1>
+          <button className="btn btn-xs btn-error mb-10" onClick={onLoggout}>
+            Loggout
+          </button>
         </div>
-        
-    </div>
-  )
-}
+        <div className="dropdown w-full">
+          <label tabIndex={0} className="btn btn-outline m-1 text-xl gap-2 shadow-sm">
+            <TbColorSwatch />
+            <p>PICK A THEME</p>
+          </label>
+          <div className="dropdown-content menu p-2 shadow bg-base-300 rounded-xl gap-2 grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
-export default Profile
+              {themes.map((theme, index) => {
+                return (
+                  <button
+                    className="btn btn-sm text-sm border-none bg-base-100 text-base-content hover:bg-base-300 px-2 w-52"
+                    data-set-theme={theme}
+                    data-act-class="ACTIVECLASS"
+                    data-theme={theme}
+                    key={index}
+                  >
+                    <div className="flex flex-row items-start">
+                      <span className="rounded bg-primary px-1 text-primary-content mr-1">
+                        {"A"}
+                      </span>
+                      <span className="rounded bg-secondary px-1 text-secondary-content mr-1">
+                        {"A"}
+                      </span>
+                      <span className="rounded bg-accent px-1 text-accent-content mr-1">
+                        {"A"}
+                      </span>
+                    </div>
+                    <p className="flex-1 text-base">{theme.toUpperCase()}</p>
+                  </button>
+                );
+              })}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Profile;

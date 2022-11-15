@@ -10,6 +10,8 @@ const Navbar = () => {
   useEffect(() => {
     themeChange(false)
   }, [])
+
+  const themes = ["emerald", 'dark']
   
   return (
     <>
@@ -40,11 +42,18 @@ const Navbar = () => {
         </button> */}
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost m-1 text-xl"><TbColorSwatch /></label>
-          <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-300 rounded-box w-52 gap-2">
-            <button className="btn btn-sm text-xl bg-stone-900 hover:bg-stone-700 border-none text-purple-600 hover:text-purple-400" data-set-theme="dark" data-act-class="ACTIVECLASS">Dark</button>
-            <button className="btn btn-sm text-xl bg-stone-100 hover:bg-stone-200 border-none text-purple-800" data-set-theme="light" data-act-class="ACTIVECLASS">Light</button>
-            <button className="btn btn-sm text-xl bg-stone-100 hover:bg-stone-200 border-none text-emerald-300 hover:text-emerald-400" data-set-theme="emerald" data-act-class="ACTIVECLASS">Emerald</button>
-            <button className="btn btn-sm text-xl bg-stone-900 hover:bg-stone-700 border-none text-green-500" data-set-theme="forest" data-act-class="ACTIVECLASS">Forest</button>
+          <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-300 rounded-box w-64 gap-2">
+            {themes.map((theme, index) => {
+              return <button className="btn btn-sm text-xl border-none bg-base-100 text-base-content hover:bg-base-300 px-4" data-set-theme={theme} data-act-class="ACTIVECLASS" data-theme={theme} key={index}>
+                <div className="flex flex-row items-start">
+                  <span className="rounded bg-primary text-sm px-1 text-primary-content mr-1">{'A'}</span>
+                  <span className="rounded bg-secondary text-sm px-1 text-secondary-content mr-1">{'A'}</span>
+                  <span className="rounded bg-accent text-sm px-1 text-accent-content mr-1">{'A'}</span>
+                </div>
+                <p className="flex-1">{theme.toUpperCase()}</p>
+                </button>
+            })}
+            <Link to='/profile'><button className="btn btn-sm text-sm border-none w-full">More Themes in Profile</button></Link>
           </ul>
         </div>
       </div>
