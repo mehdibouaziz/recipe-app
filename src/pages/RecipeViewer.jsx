@@ -93,8 +93,9 @@ const RecipeViewer = () => {
             <p className="font-content underline">{recipe.sourceName}</p>
           </a>
           <FaLink className="text-xs self-center"/>
+          <p className="mx-2">-</p>
           <p className="font-content">
-             - Added {new Date(recipe.timestamp.seconds * 1000).toDateString()}
+            Added {new Date(recipe.timestamp.seconds * 1000).toDateString()}
           </p>
         </div>
         <p className="font-content text-sm lg:text-base border-t pt-4 mb-4 empty:border-none empty:mb-2 empty:p-0">
@@ -105,19 +106,22 @@ const RecipeViewer = () => {
           style={{ backgroundImage: `url(${recipe.img})` }}
         ></div>
 
-        <div className="flex flex-row gap-4 mt-6 lg:mt-8 px-2 items-center">
-          <div className="flex flex-col font-content border-r pr-4 last:border-none last:pr-0">
+        <div className="flex flex-row flex-wrap gap-0 lg:gap-2 mt-6 lg:mt-8 px-0 sm:px-4 items-center">
+          <div className="flex flex-col font-content">
             <p className="text-xs text-gray-500">PREP TIME</p>
             <p className="uppercase">{recipe.preparation}</p>
           </div>
-          <div className="flex flex-col font-content border-r pr-4 last:border-none last:pr-0">
+          <div className="divider divider-horizontal"></div>
+          <div className="flex flex-col font-content">
             <p className="text-xs text-gray-500">COOK TIME</p>
             <p className="uppercase">{recipe.cooking}</p>
           </div>
-          <div className="flex flex-col font-content border-r pr-4 last:border-none last:pr-0">
+          <div className="divider divider-horizontal"></div>
+          <div className="flex flex-col font-content">
             <p className="text-xs text-gray-500">SERVINGS</p>
             <p className="uppercase">{recipe.servings}</p>
           </div>
+          <div className="divider divider-horizontal"></div>
           <button className="btn btn-ghost">
             <FiPrinter className="text-xl" />
           </button>
