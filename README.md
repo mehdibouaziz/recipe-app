@@ -2,22 +2,22 @@ Recipe App w/ React/Redux/Tailwind/DaisyUI/Firebase
 
 
 ## To Do :
-[ ] Improve add new form
-[ ] Add userRef to add new form
-[ ] Create live preview next to add new
-[ ] Add own recipes to profile
-[ ] Create catalog list view
-[ ] Create print friendly layout
-[ ] Add google OAuth
-[ ] Add image hosting
-[ ] Add search
-[ ] Add categories
-[ ] Add ratings
-[ ] Add avatars
-[ ] Add comments (?)
-[ ] Add highlighted recipes sliders
-[ ] Add footer, site infos, links
-[ ] Add favorites
+- [ ] Improve add new form
+- [ ] Add userRef to add new form
+- [ ] Create live preview next to add new
+- [ ] Add own recipes to profile
+- [ ] Create catalog list view
+- [ ] Create print friendly layout
+- [ ] Add google OAuth
+- [ ] Add image hosting
+- [ ] Add search
+- [ ] Add categories
+- [ ] Add ratings
+- [ ] Add avatars
+- [ ] Add comments (?)
+- [ ] Add highlighted recipes sliders
+- [ ] Add footer, site infos, links
+- [ ] Add favorites
 
 
 ## Breakpoints
