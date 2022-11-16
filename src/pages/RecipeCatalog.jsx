@@ -22,7 +22,7 @@ const RecipeCatalog = () => {
         const q = query(
             recipesRef,
             orderBy('timestamp', 'asc'),
-            limit(10)
+            //limit(10)
         )
 
         //execute query

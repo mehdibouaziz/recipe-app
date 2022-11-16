@@ -2,9 +2,9 @@ Recipe App w/ React/Redux/Tailwind/DaisyUI/Firebase
 
 
 ## To Do :
-- [ ] Improve add new form
+- [x] Improve add new form
 - [ ] Add userRef to add new form
-- [ ] Create live preview next to add new
+- [x] Create live preview next to add new -> done as toggleable recipe preview
 - [ ] Add own recipes to profile
 - [ ] Create catalog list view
 - [ ] Create print friendly layout
@@ -18,6 +18,7 @@ Recipe App w/ React/Redux/Tailwind/DaisyUI/Firebase
 - [ ] Add highlighted recipes sliders
 - [ ] Add footer, site infos, links
 - [ ] Add favorites
+- [ ] Add option to display a video instead of the recipe image (use thumbnail as image)
 
 
 ## Breakpoints
