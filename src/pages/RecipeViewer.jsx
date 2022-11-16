@@ -5,7 +5,6 @@ import { db } from "../firebase.config";
 import { FiPrinter } from "react-icons/fi";
 import { FaLink } from "react-icons/fa";
 
-import Recipe from "../components/Recipe";
 import Spinner from "../components/Spinner";
 
 const RecipeViewer = ({preview = null}) => {
