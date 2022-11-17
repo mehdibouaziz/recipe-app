@@ -10,35 +10,20 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const themes = [
-    "light",
-    "dark",
-    "cupcake",
-    "bumblebee",
     "emerald",
-    "corporate",
-    "synthwave",
-    "retro",
-    "cyberpunk",
-    "valentine",
+    "dark",
+    "light",
+    "night",
+    "cupcake",
     "halloween",
-    "garden",
+    "bumblebee",
     "forest",
-    "aqua",
-    "lofi",
-    "pastel",
     "fantasy",
-    "wireframe",
-    "black",
-    "luxury",
     "dracula",
-    "cmyk",
     "autumn",
     "business",
-    "acid",
-    "lemonade",
-    "night",
-    "coffee",
     "winter",
+    "lofi",
   ];
 
   useEffect(() => {
@@ -49,6 +34,15 @@ const Profile = () => {
     auth.signOut();
     navigate("/");
   };
+
+  const toggleTheme = () => {
+    console.log(document.documentElement.getAttribute("data-theme"))
+    if(document.documentElement.getAttribute("data-theme") === "dark"){
+      document.documentElement.setAttribute("data-theme", "emerald")
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark")
+    }
+  }
 
   return (
     <div className="w-full flex flex-row justify-center">
@@ -61,7 +55,8 @@ const Profile = () => {
             Loggout
           </button>
         </div>
-        <div className="dropdown w-full">
+        <button className="btn btn-outline sm:hidden m-1 text-base gap-2 shadow-sm" onClick={() => toggleTheme()}><TbColorSwatch />Toggle Dark/Light Theme</button>
+        <div className="dropdown w-full hidden sm:inline-block">
           <label tabIndex={0} className="btn btn-outline m-1 text-xl gap-2 shadow-sm">
             <TbColorSwatch />
             <p>PICK A THEME</p>
