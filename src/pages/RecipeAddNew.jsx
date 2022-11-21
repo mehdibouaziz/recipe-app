@@ -1,16 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
 
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { addDoc, doc, updateDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import { MdOutlineInfo } from "react-icons/md";
 
 import Spinner from "../components/Spinner";
 import RecipeViewer from "./RecipeViewer";
 
-const RecipeAddNew = () => {
+const RecipeAddNew = ({edit = false}) => {
   const navigate = useNavigate();
+  const params = useParams();
 
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(false);
@@ -27,6 +29,7 @@ const RecipeAddNew = () => {
     instructions: "",
     description: "",
   });
+  const recipeEdit = useSelector((state) => state.main.recipeEdit)
   const {
     sourceUrl,
     img,
@@ -41,6 +44,13 @@ const RecipeAddNew = () => {
     description,
   } = formData;
 
+  useEffect(() => {
+    // if the creator is opened in edit mode
+    if(edit && Object.keys(recipeEdit) !== 0){
+      setFormData({...recipeEdit})
+    }
+  }, [edit, recipeEdit]);
+
   const handleChange = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -50,7 +60,6 @@ const RecipeAddNew = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-
     try {
       //  form validation here:
 
@@ -66,11 +75,21 @@ const RecipeAddNew = () => {
       };
       // console.log(formDataCopy)
 
-      // submit recipe to the database
-      const docRef = await addDoc(collection(db, "recipes"), formDataCopy);
-      setLoading(false);
-      toast.success("New recipe added");
-      navigate("/");
+
+      // IF EDIT RECIPE MODE:
+      if(edit){
+        const docRef = doc(db, 'recipes', params.recipeId)
+        await updateDoc(docRef, formDataCopy)
+        setLoading(false);
+        toast.success("Recipe updated")
+        navigate(`/recipe/${params.recipeId}`)
+      } else { // ELSE NORMAL NEW RECIPE UPLOAD
+        await addDoc(collection(db, "recipes"), formDataCopy);
+        setLoading(false);
+        toast.success("New recipe added");
+        navigate("/");
+      }
+         
     } catch (error) {
       console.log(error);
       toast.error("Failed to upload recipe");
@@ -84,6 +103,7 @@ const RecipeAddNew = () => {
   return (
     <div className="flex flex-col w-full justify-center px-4 mb-24 font-content">
       {loading && <Spinner overlay />}
+      
       <div className="form-control self-end mr-6">
         <label className="cursor-pointer label">
           <span className="label-text mr-2">Preview</span>
@@ -96,6 +116,7 @@ const RecipeAddNew = () => {
           />
         </label>
       </div>
+      {edit && <><p className="text-xl text-warning self-end mr-6"><MdOutlineInfo className="inline align-text-top" /> EDIT MODE: ONLY ADMINS CAN UPDATE RECIPES</p></>}
 
     {preview ? 
       <RecipeViewer preview={{...formData,
@@ -237,11 +258,11 @@ const RecipeAddNew = () => {
               data-tip={formatTooltip}
               data-html="true"
             >
-              <p className="label-text mt-1 ml-4 text-gray-400">
+              <div className="label-text mt-1 ml-4 text-gray-400">
                 <MdOutlineInfo className="inline" />{" "}
                 <p className="hidden sm:inline text-sm">Formating Info</p>
                 <p className="inline sm:hidden text-sm">{formatTooltip}</p>
-              </p>
+              </div>
             </div>
           </div>
 
@@ -260,9 +281,9 @@ const RecipeAddNew = () => {
 
           <button
             type="submit"
-            className="btn btn-primary mt-6 col-span-6 col-start-4 w-full"
+            className="btn btn-warning mt-6 col-span-6 col-start-4 w-full"
           >
-            Add Recipe
+            {edit ? "Edit Recipe" : "Add Recipe"}
           </button>
         </div>
       </form>

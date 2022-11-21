@@ -10,9 +10,9 @@ const StarRating = ({rating = 0, random=false}) => {
 
     const stars= []
     for(let i=1;i<=5;i++){
-        if(displayRating >= i){stars.push(<FaStar className="text-accent" />)}
-        else if(displayRating < i && displayRating > i-1){stars.push(<FaStarHalfAlt className="text-accent" />)}
-        else {stars.push(<FaRegStar className="text-accent" />)}
+        if(displayRating >= i){stars.push(<FaStar key={`star-${i}`} className="text-accent" />)}
+        else if(displayRating < i && displayRating > i-1){stars.push(<FaStarHalfAlt key={`star-${i}`} className="text-accent" />)}
+        else {stars.push(<FaRegStar key={`star-${i}`} className="text-accent" />)}
     }
 
   return (

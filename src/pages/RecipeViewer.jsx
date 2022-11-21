@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { loadEditRecipe } from '../slices/mainSlice.js'
+import { useNavigate, useParams } from "react-router-dom";
 import { getDoc, doc } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { FiPrinter } from "react-icons/fi";
-import { FaLink } from "react-icons/fa";
+import { FaLink, FaRegEdit } from "react-icons/fa";
 
 import Spinner from "../components/Spinner";
 
@@ -17,6 +19,7 @@ const RecipeViewer = ({preview = null}) => {
 
   const navigate = useNavigate();
   const params = useParams();
+  const dispatch = useDispatch()
 
   const parseInstructions = (instructions) => {
     let newSteps = [];
@@ -67,6 +70,19 @@ const RecipeViewer = ({preview = null}) => {
     fetchRecipe();
   }, [navigate, params.recipeId, preview]);
 
+  const goEdit = async () => {
+    // store recipe to edit in redux for the editor form+
+    const recipeEdit = {
+        ...recipe,
+        ingredients: recipe.ingredients.join("\n"),
+        instructions: recipe.instructions.join("\n"),
+        level: +recipe.level
+      }
+    delete recipeEdit.timestamp
+    await dispatch(loadEditRecipe({...recipeEdit}))
+    navigate(`/edit-recipe/${params.recipeId}`)
+  }
+
   if (loading) {
     return <Spinner />;
   }
@@ -94,8 +110,10 @@ const RecipeViewer = ({preview = null}) => {
 
   return (
     <div className="w-100 flex flex-row justify-center mb-12">
-      <div className="flex flex-col w-[90%] sm:w-[70%] max-w-[1000px]">
-        <h1 className="text-xl lg:text-5xl font-bold lg:font-medium font-title mb-4">
+      <div className="relative flex flex-col w-[90%] sm:w-[70%] max-w-[1000px]">
+        {/* <p className="text-3xl text-red-500">EDIT MODE</p> */}
+        <button to={`/edit-recipe/${params.recipeId}`} onClick={() => goEdit()} className="absolute right-1 btn btn-ghost" title="Edit Recipe" aria-label="Edit Recipe"><FaRegEdit className="text-xl" /></button>
+        <h1 className="text-xl lg:text-5xl font-bold lg:font-medium font-title mb-4 w-[88%]">
           {recipe.name}
         </h1>
         <div className="flex flex-row gap-1 mb-4">

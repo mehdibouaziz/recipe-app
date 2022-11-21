@@ -21,6 +21,7 @@ function App() {
         <Routes>
           <Route path='/' element={<RecipeCatalog />} />
           <Route path='/recipe/:recipeId' element={<RecipeViewer />} />
+          <Route path='/edit-recipe/:recipeId' element={<RecipeAddNew edit />} />
           <Route path='/add-new' element={<RecipeAddNew />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
