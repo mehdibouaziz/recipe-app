@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from 'react-redux'
 
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { addDoc, doc, updateDoc, collection, serverTimestamp } from "firebase/firestore";
 import { db } from "../firebase.config";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,8 +11,9 @@ import { MdOutlineInfo } from "react-icons/md";
 import Spinner from "../components/Spinner";
 import RecipeViewer from "./RecipeViewer";
 
-const RecipeAddNew = ({edit = false}) => {
+const RecipeCreator = ({edit = false}) => {
   const navigate = useNavigate();
+  const auth = getAuth();
   const params = useParams();
 
   const [loading, setLoading] = useState(false);
@@ -21,6 +23,7 @@ const RecipeAddNew = ({edit = false}) => {
     img: "",
     name: "",
     sourceName: "",
+    language: "EN",
     preparation: "",
     cooking: "",
     servings: "",
@@ -28,6 +31,7 @@ const RecipeAddNew = ({edit = false}) => {
     ingredients: "",
     instructions: "",
     description: "",
+    userRef: "",
   });
   const recipeEdit = useSelector((state) => state.main.recipeEdit)
   const {
@@ -35,6 +39,7 @@ const RecipeAddNew = ({edit = false}) => {
     img,
     name,
     sourceName,
+    language,
     preparation,
     cooking,
     servings,
@@ -42,14 +47,38 @@ const RecipeAddNew = ({edit = false}) => {
     ingredients,
     instructions,
     description,
+    userRef,
   } = formData;
 
   useEffect(() => {
-    // if the creator is opened in edit mode
+    // if the creator is opened in edit mode and load recipe from redux store
     if(edit && Object.keys(recipeEdit) !== 0){
       setFormData({...recipeEdit})
     }
   }, [edit, recipeEdit]);
+
+  // todo: modify this useEffect to not overwrite the previous one
+  const isMounted = useRef(true);
+  useEffect(() => {
+    // verify that user is authenticated and gather user id; OR send user to sign in
+    if (isMounted) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          setFormData({
+            ...formData,
+            userRef: user.uid,
+          });
+        } else {
+          toast.error(`Only logged-in users can ${edit ? 'edit' : 'add'} recipes.`);
+          navigate("/sign-in");
+        }
+      });
+    }
+    return () => {
+      isMounted.current = false;
+    };
+    // eslint-disable-next-line
+  }, [isMounted]);
 
   const handleChange = (e) => {
     setFormData((prevState) => ({
@@ -156,7 +185,7 @@ const RecipeAddNew = ({edit = false}) => {
             />
           </div>
 
-          <div className="form-control w-full col-span-6 sm:col-span-8">
+          <div className="form-control w-full col-span-6 sm:col-span-6">
             <label className="label">
               <span className="label-text">Source Name</span>
             </label>
@@ -170,7 +199,7 @@ const RecipeAddNew = ({edit = false}) => {
             />
           </div>
 
-          <div className="form-control w-full col-span-6 sm:col-span-4">
+          <div className="form-control w-full col-span-6 sm:col-span-3">
             <label className="label">
               <span className="label-text">Source URL</span>
             </label>
@@ -182,6 +211,23 @@ const RecipeAddNew = ({edit = false}) => {
               onChange={handleChange}
               value={sourceUrl}
             />
+          </div>
+
+          <div className="form-control w-full col-span-6 sm:col-span-3">
+            <label className="label">
+              <span className="label-text">Language</span>
+            </label>
+            <select 
+              className="select select-bordered w-full invalid:input-error"
+              onChange={handleChange}
+              id="language"
+              value={language}
+              >
+              <option disabled>Choose language?</option>
+              <option value={"EN"}>EN</option>
+              <option value={"FR"}>FR</option>
+              <option value={"PL"}>PL</option>
+            </select>
           </div>
 
           <div className="form-control w-full col-span-6 sm:col-span-3">
@@ -292,4 +338,4 @@ const RecipeAddNew = ({edit = false}) => {
   );
 };
 
-export default RecipeAddNew;
+export default RecipeCreator;

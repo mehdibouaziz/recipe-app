@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import RecipeCatalog from "./pages/RecipeCatalog";
 import RecipeViewer from "./pages/RecipeViewer";
-import RecipeAddNew from "./pages/RecipeAddNew";
+import RecipeCreator from "./pages/RecipeCreator";
 import Navbar from "./components/Navbar";
 import PrivateRoutes from "./components/PrivateRoutes"
 import Profile from "./pages/Profile"
@@ -21,8 +21,8 @@ function App() {
         <Routes>
           <Route path='/' element={<RecipeCatalog />} />
           <Route path='/recipe/:recipeId' element={<RecipeViewer />} />
-          <Route path='/edit-recipe/:recipeId' element={<RecipeAddNew edit />} />
-          <Route path='/add-new' element={<RecipeAddNew />} />
+          <Route path='/edit-recipe/:recipeId' element={<RecipeCreator edit />} />
+          <Route path='/add-new' element={<RecipeCreator />} />
           <Route path='/sign-up' element={<SignUp />} />
           <Route path='/sign-in' element={<SignIn />} />
           <Route path='/profile' element={<PrivateRoutes />}>
