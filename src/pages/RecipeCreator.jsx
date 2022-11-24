@@ -18,6 +18,7 @@ const RecipeCreator = ({edit = false}) => {
 
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState(false);
+  const [userID, setUserID] = useState(null);
   const [formData, setFormData] = useState({
     sourceUrl: "",
     img: "",
@@ -57,17 +58,13 @@ const RecipeCreator = ({edit = false}) => {
     }
   }, [edit, recipeEdit]);
 
-  // todo: modify this useEffect to not overwrite the previous one
   const isMounted = useRef(true);
   useEffect(() => {
     // verify that user is authenticated and gather user id; OR send user to sign in
     if (isMounted) {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          setFormData({
-            ...formData,
-            userRef: user.uid,
-          });
+          setUserID(user.uid);
         } else {
           toast.error(`Only logged-in users can ${edit ? 'edit' : 'add'} recipes.`);
           navigate("/sign-in");
@@ -101,6 +98,7 @@ const RecipeCreator = ({edit = false}) => {
         instructions: formData.instructions.split("\n"),
         level: +level,
         timestamp: serverTimestamp(),
+        userRef: userID,
       };
       // console.log(formDataCopy)
 
