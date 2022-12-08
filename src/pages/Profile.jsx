@@ -2,12 +2,15 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { getAuth, updateProfile } from "firebase/auth";
 import { themeChange } from "theme-change";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../firebase.config";
 
 import { TbColorSwatch } from "react-icons/tb";
 
 const Profile = () => {
   const auth = getAuth();
   const [loading, setLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
   const navigate = useNavigate();
   const themes = [
     "emerald",
@@ -30,6 +33,19 @@ const Profile = () => {
     themeChange(false);
   }, []);
 
+  useEffect(() => {
+    console.log(auth.currentUser.uid)
+    const fetchRecipe = async () => {
+
+      const docRef = doc(db, "admins", auth.currentUser.uid);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setIsAdmin(true)
+      }
+    };
+    fetchRecipe();
+  }, [navigate, auth.currentUser]);
+
   const onLoggout = () => {
     auth.signOut();
     navigate("/");
@@ -51,9 +67,18 @@ const Profile = () => {
           <h1 className="font-title text-4xl mt-10 mb-2">
             Welcome {auth.currentUser.displayName}!
           </h1>
-          <button className="btn btn-xs btn-error mb-10" onClick={onLoggout}>
-            Loggout
-          </button>
+          <div className="flex flex-row gap-2">
+            {isAdmin ? 
+            <div className="badge badge-success badge-lg rounded-lg text-xs uppercase font-bold">
+              Admin
+            </div>
+            :
+            <></>
+            }
+            <button className="btn btn-xs btn-error mb-10" onClick={onLoggout}>
+              Loggout
+            </button>
+          </div>
         </div>
         <button className="btn btn-outline sm:hidden m-1 text-base gap-2 shadow-sm" onClick={() => toggleTheme()}><TbColorSwatch />Toggle Dark/Light Theme</button>
         <div className="dropdown w-full hidden sm:inline-block">

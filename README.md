@@ -6,8 +6,8 @@ Recipe App w/ React/Redux/Tailwind/DaisyUI/Firebase
 - [ ] Add userRef to add new form
 - [x] Create live preview next to add new -> done as toggleable recipe preview
 - [ ] Add own recipes to profile
-- [ ] Add admin status
-- [ ] Allow editing recipes (admin only)
+- [x] Add admin status
+- [x] Allow editing recipes (admin only)
 - [ ] Create catalog list view
 - [ ] Create print friendly layout
 - [ ] Add google OAuth
